@@ -1,0 +1,12 @@
+{
+  "name": "weather-proxy",
+  "version": "1.0.0",
+  "description": "УЦУОШТ цаг агаарын dashboard proxy",
+  "main": "proxy_railway.js",
+  "scripts": {
+    "start": "node proxy_railway.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
