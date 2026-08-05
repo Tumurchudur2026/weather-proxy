@@ -666,9 +666,7 @@ function renderDashboard(data) {
   document.getElementById('pressureQNH').textContent = 'Д/түвшин: '+(sd.sea_level_pressure_qnh??'--')+' гПа';
   document.getElementById('pressureQNHCard').textContent = sd.sea_level_pressure_qnh??'--';
   document.getElementById('soilTemp').textContent = sd.soil_surface_temperature??'--';
-  document.getElementById('radiation').textContent = sd.net_radiation??'--';
-  document.getElementById('rainfall').textContent = sd.minute_rainfall??'--';
-  document.getElementById('rainfallSub').textContent = 'Цагийн нийт: '+(sd.hour_rainfall??'--')+' мм';
+
 
   // Footer
   document.getElementById('footerInfo').textContent =
