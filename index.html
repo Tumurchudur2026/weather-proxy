@@ -490,18 +490,6 @@ footer {
       <div><span class="card-value" id="soilTemp">--</span><span class="card-unit">°C</span></div>
       <div class="card-sub">Гадаргын хэмжилт</div>
     </div>
-    <div class="card">
-      <div class="card-icon">☀️</div>
-      <div class="card-label">Нарны цацраг</div>
-      <div><span class="card-value" id="radiation">--</span><span class="card-unit">W/m²</span></div>
-      <div class="card-sub">Цэвэр цацраг</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🌧</div>
-      <div class="card-label">Хур тунадас</div>
-      <div><span class="card-value" id="rainfall">--</span><span class="card-unit">мм</span></div>
-      <div class="card-sub" id="rainfallSub">Цагийн нийт: -- мм</div>
-    </div>
   </div>
 
   <!-- HISTORY CHART -->
@@ -529,8 +517,8 @@ footer {
 
 <script>
 const STATIONS = {
-  530: { name: 'Дархан', url: 'https://weather-proxy-o14g.onrender.com/530' },
-  531: { name: 'Шарын гол', url: 'https://weather-proxy-o14g.onrender.com/531' }
+  530: { name: 'Дархан', url: 'https://weather-proxy-production-1f44.up.railway.app/530' },
+  531: { name: 'Шарын гол', url: 'https://weather-proxy-production-1f44.up.railway.app/531' }
 };
 let currentStation = 530;
 let historyData = {};
@@ -652,11 +640,10 @@ function renderDashboard(data) {
   const dateStr = obsD.getFullYear()+'.'+String(obsD.getMonth()+1).padStart(2,'0')+'.'+String(obsD.getDate()).padStart(2,'0');
   const timeStr = String(obsD.getHours()).padStart(2,'0')+':'+String(obsD.getMinutes()).padStart(2,'0');
   const windDN = getWindDirName(sd.wind_direction || 0);
-  const rainText = (sd.hour_rainfall > 0) ? (sd.hour_rainfall + ' мм бүртгэгдлээ') : 'бүртгэгдээгүй';
   document.getElementById('tempDesc').textContent =
     sName+' өртөөний '+dateStr+', '+timeStr+' цагийн мэдээгээр агаарын температур '+
     temp+' градус, салхи '+windDN+' чиглэлээс '+(sd.wind_speed??'--')+' м/с, чийгшил '+(sd.humidity??'--')+
-    ' хувь, даралт '+(sd.air_pressure??'--')+' гПа байна. Сүүлийн нэг цагт хур тунадас '+rainText+'.';
+    ' хувь, даралт '+(sd.air_pressure??'--')+' гПа байна.';
 
   // Quick stats
   document.getElementById('qsHumidity').textContent = (sd.humidity??'--') + '%';
